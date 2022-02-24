@@ -1,5 +1,11 @@
 pipeline {
-    agent any
+    agent {
+        kubernetes {
+            cloud 'kubernetes'
+            inheritFrom 'default'
+            namespace 'jenkins'
+  }
+}
     environment {
         DOCKERHUB_USERNAME = "gulec2000"
         APP_NAME = "gitops-demo"
@@ -24,9 +30,8 @@ pipeline {
         }
         stage('Build Docker Image'){
             steps {
-                script{
-                    docker_image = docker.build "${IMAGE_NAME}"
-                }
+                sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
+                sh "docker build -t ${IMAGE_NAME}:latest ."
             }
         }
         stage('Push Docker Image'){
@@ -70,7 +75,7 @@ pipeline {
 }
 
 
-// stage('Build Docker Image'){
+//         stage('Build Docker Image'){
 //             steps {
 //                 sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
 //                 sh "docker build -t ${IMAGE_NAME}:latest ."
