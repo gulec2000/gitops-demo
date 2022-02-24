@@ -8,13 +8,13 @@ pipeline {
         REGISTRY_CREDS = 'dockerhub'
         }
     stages {
-        stage('Cleanup Workspace'){
-            steps {
-                script {
-                    cleanWs()
-                }
-            }
-        }
+//        stage('Cleanup Workspace'){
+//            steps {
+//                script {
+//                    cleanWS()
+//                }
+//            }
+//        }
         stage('Checkout SCM'){
             steps {
                 git credentialsId: 'github', 
