@@ -25,7 +25,7 @@ pipeline {
 //        }
         stage('Checkout SCM'){
             steps {
-                git credentialsId: 'github', 
+                git credentialsId: 'Github', 
                 url: 'https://github.com/gulec2000/gitops-demo.git',
                 branch: 'master'
             }
