@@ -7,9 +7,9 @@ spec:
   project: default
 
   source:
-    repoURL: https://gitlab.com/gulec2000/gitops-demo.git
-    targetRevision: HEAD
-    path: master
+    repoURL: https://github.com/gulec2000/gitops-demo.git
+    targetRevision: master
+    path: .
   destination: 
     server: https://kubernetes.default.svc
     namespace: flaskapp
