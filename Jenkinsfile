@@ -1,11 +1,13 @@
 pipeline {
-    agent {
-        kubernetes {
-            cloud 'kubernetes'
-            inheritFrom 'default'
-            namespace 'jenkins'
-  }
-}
+    agent any
+    
+//    {
+ //       kubernetes {
+ //           cloud 'kubernetes'
+ //           inheritFrom 'default'
+ //           namespace 'jenkins'
+ // }
+//}
     environment {
         DOCKERHUB_USERNAME = "gulec2000"
         APP_NAME = "gitops-demo"
