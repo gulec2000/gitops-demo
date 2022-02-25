@@ -68,7 +68,7 @@ pipeline {
                     git config --global user.email "gulec2000@gmail.com"
                     git add deployment.yml
                     git commit -m 'Updated the deployment file' """
-                    withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'pass', usernameVariable: 'user')]) {
+                    withCredentials([usernamePassword(credentialsId: 'Github', passwordVariable: 'pass', usernameVariable: 'user')]) {
                         sh "git push http://$user:$pass@github.com/gulec2000/gitops-demo.git master"
                     }
                 }
