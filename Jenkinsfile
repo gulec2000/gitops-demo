@@ -32,8 +32,9 @@ pipeline {
         }
         stage('Build Docker Image'){
             steps {
-                sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
-                sh "docker build -t ${IMAGE_NAME}:latest ."
+                script{
+                    docker_image = docker.build "${IMAGE_NAME}"
+                }
             }
         }
         stage('Push Docker Image'){
