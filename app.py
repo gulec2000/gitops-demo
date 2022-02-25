@@ -19,7 +19,7 @@ app = Flask(__name__)
 @app.route("/details")
 def details():
     hostname,ip,mac = get_device_details()
-    out = "Hello!!!....I'm " + hostname + "....My MAC ID is " + mac + "....and My IP address is "+ip
+    out = "Hello!!!....This is my " + hostname + "....My MAC ID is " + mac + "....and My IP address is "+ip
     return out
 
 @app.route("/health")
@@ -30,7 +30,7 @@ def health():
 
 @app.route("/")
 def home():
-    return "Hello World! I am happy to see it from here"
+    return "Hello World! I am curios to see it from here again"
    
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int("5000"), debug=True)
